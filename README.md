@@ -27,7 +27,7 @@ y = texte[i+10]             # cible : la lettre suivante, qu'on avait déjà
 
 > Le « cacher puis retrouver » a donc lieu **pendant l'entraînement** : c'est l'exercice qu'on donne au modèle pour qu'il apprenne. Une fois entraîné, il peut compléter de nouvelles données (comme GPT qui complète ton texte), ou on peut réutiliser ce qu'il a appris pour une autre tâche.
 
-## Les exemples
+## Les scripts
 
 | Fichier | Tâche auto-supervisée | Entrée → cible |
 |---|---|---|
@@ -53,12 +53,18 @@ python completer_texte.py
 
 Chaque script tourne en quelques secondes sur CPU, sans GPU.
 
-## Où l'auto-supervisé s'applique bien
+## Exemples concrets
 
-On l'utilise quand on a **beaucoup de données brutes mais peu d'étiquettes**, car étiqueter coûte cher :
+Texte : le modèle complète le début de phrase.
 
-- **Texte** : prédire le mot suivant (GPT) ou un mot caché (BERT).
-- **Images** : reconstruire des zones masquées (MAE), coloriser des photos en noir et blanc.
-- **Audio** : prédire des morceaux de signal cachés (wav2vec).
-- **Vidéo, séries temporelles** : prédire l'image ou la valeur suivante.
-- **Médecine, biologie** : pré-entraîner sur des radiographies ou des protéines non annotées.
+```text
+Entrée : le petit garçon
+Sortie : le petit garçon lit un journal.
+
+Entrée : le chien mange
+Sortie : le chien mange de la viande.
+```
+
+Image : le modèle redessine le bas caché du chiffre.
+
+![Complétion d'images](completer_image.png)
